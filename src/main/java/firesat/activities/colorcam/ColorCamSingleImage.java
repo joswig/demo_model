@@ -13,7 +13,6 @@ import static gov.nasa.jpl.aerie.merlin.framework.ModelActions.delay;
 public class ColorCamSingleImage {
 
 
-
   @Parameter
   public int num_rows = 1024;
   @Parameter
@@ -32,17 +31,19 @@ public class ColorCamSingleImage {
 
   }
 
-  @AutoValueMapper.Record
-  public record ComputedAttributes(
-    double dataAccrued
-  ) {}
-
   @EffectModel
   public ComputedAttributes run(final Mission mission) {
     delay(exposure_time);
+    mission.dataVolume.add(1234d);
     return new ComputedAttributes(
       num_rows * num_cols
     );
+  }
+
+  @AutoValueMapper.Record
+  public record ComputedAttributes(
+    double dataAccrued
+  ) {
   }
 
 }

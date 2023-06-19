@@ -2,10 +2,12 @@
 @WithMappers(BasicValueMappers.class)
 @WithConfiguration(Configuration.class)
 @WithActivityType(GncChangeControlMode.class)
+@WithActivityType(AntennaPass.class)
 @WithActivityType(ColorCamRaster.class)
 @WithActivityType(ColorCamSingleImage.class)
 package firesat;
 
+import firesat.activities.antenna.AntennaPass;
 import firesat.activities.colorcam.ColorCamRaster;
 import firesat.activities.colorcam.ColorCamSingleImage;
 import firesat.activities.gnc.GncChangeControlMode;
